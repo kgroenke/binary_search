@@ -1,0 +1,40 @@
+<html>
+<head>
+  <script>
+  function binary_search(array, num) {
+      if (array.length < 1){
+          return "input valid array"
+      }
+      var sidx = 0
+      var eidx = array.length-1
+      var midx
+
+      while(eidx-sidx > 1){
+          midx = sidx + Math.floor((eidx - sidx)/2)
+
+          if(array[midx] > num){
+              eidx = midx
+          } else if (array[midx] < num){
+              sidx = midx
+          }else {
+              return midx
+          }
+      }
+
+      if(array[eidx]==num){
+          return eidx
+      } else if (array[sidx] == num){
+          return sidx
+      } else {
+        return "Not found"
+    }
+  }
+
+  var array = [1,2,3,4,5,6,7,10]
+  var num = 0
+  console.log(binary_search(array, num))
+
+
+  </script>
+</head>
+</html>
